@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var speed: = 40
+export var speed = 40
 export(int) var max_health = 6
 
-var direction: = Vector2.ZERO
-var velocity: = Vector2.ZERO
+var direction = Vector2.ZERO
+var velocity = Vector2.ZERO
 
 onready var health = max_health
 

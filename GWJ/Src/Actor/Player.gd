@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
 export var speed: = 40
+export(int) var max_health = 6
 
 var direction: = Vector2.ZERO
 var velocity: = Vector2.ZERO
+
+onready var health = max_health
 
 func _process(_delta: float) -> void:
 	direction = Vector2.ZERO
@@ -15,5 +18,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 
-func on_hit(var damage):
-	print("receive " + str(damage) + " damage")
+func on_hit(damage):
+	health -= damage
+	if health <= 0:
+		print("player dies")

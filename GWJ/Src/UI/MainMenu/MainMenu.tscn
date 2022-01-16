@@ -12,18 +12,23 @@
 [ext_resource path="res://Asset/Art/Splash/ShipwreckAdventure-Main menu background.jpg" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
+size = 10
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 10
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 10
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 10
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 10
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -65,96 +70,88 @@ script = ExtResource( 8 )
 [node name="MenuUI" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="MenuUI"]
-margin_right = 320.0
-margin_bottom = 179.0
+margin_right = 18.0
+margin_bottom = 18.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="MarginContainer" parent="MenuUI/UI"]
-margin_right = 320.0
-margin_bottom = 180.0
+[node name="Buttons1" type="MarginContainer" parent="MenuUI/UI"]
+margin_left = 6.0
+margin_top = 147.0
+margin_right = 151.0
+margin_bottom = 172.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="VBoxContainer" parent="MenuUI/UI/Buttons"]
-margin_right = 320.0
-margin_bottom = 180.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuUI/UI/Buttons/Button"]
-margin_left = 74.0
-margin_top = 141.0
-margin_right = 245.0
-margin_bottom = 166.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuUI/UI/Buttons1"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 136.0
+margin_bottom = 25.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 
-[node name="Start" type="Button" parent="MenuUI/UI/Buttons/Button/HBoxContainer"]
-margin_right = 49.0
-margin_bottom = 25.0
+[node name="Start" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_right = 36.0
+margin_bottom = 19.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
-[node name="Control2" type="Control" parent="MenuUI/UI/Buttons/Button/HBoxContainer"]
-margin_left = 53.0
-margin_right = 53.0
-margin_bottom = 25.0
+[node name="Control2" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 40.0
+margin_right = 40.0
+margin_bottom = 19.0
 
-[node name="Setting" type="Button" parent="MenuUI/UI/Buttons/Button/HBoxContainer"]
-margin_left = 57.0
-margin_right = 122.0
-margin_bottom = 25.0
+[node name="Setting" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 44.0
+margin_right = 90.0
+margin_bottom = 19.0
 custom_fonts/font = SubResource( 2 )
 text = "Setting"
 
-[node name="Control" type="Control" parent="MenuUI/UI/Buttons/Button/HBoxContainer"]
-margin_left = 126.0
-margin_right = 126.0
-margin_bottom = 25.0
+[node name="Control" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 94.0
+margin_right = 94.0
+margin_bottom = 19.0
 
-[node name="Exit" type="Button" parent="MenuUI/UI/Buttons/Button/HBoxContainer"]
-margin_left = 130.0
-margin_right = 171.0
-margin_bottom = 25.0
+[node name="Exit" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 98.0
+margin_right = 128.0
+margin_bottom = 19.0
 custom_fonts/font = SubResource( 3 )
 text = "Exit"
 
-[node name="Space" type="Control" parent="MenuUI/UI/Buttons/Button"]
-margin_top = 170.0
-margin_right = 320.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 0, 10 )
-
-[node name="Button2" type="VBoxContainer" parent="MenuUI/UI/Buttons"]
-margin_right = 320.0
-margin_bottom = 180.0
+[node name="Button2" type="VBoxContainer" parent="MenuUI/UI"]
+margin_left = 267.0
+margin_top = 128.0
+margin_right = 309.0
+margin_bottom = 174.0
 mouse_filter = 2
 alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Rule" type="Button" parent="MenuUI/UI/Buttons/Button2"]
-margin_left = 276.0
-margin_top = 122.0
-margin_right = 320.0
-margin_bottom = 147.0
+[node name="Rule" type="Button" parent="MenuUI/UI/Button2"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 48.0
+margin_bottom = 23.0
 size_flags_horizontal = 8
 custom_fonts/font = SubResource( 4 )
 text = "Rule"
 align = 0
 
-[node name="About" type="Button" parent="MenuUI/UI/Buttons/Button2"]
-margin_left = 265.0
-margin_top = 151.0
-margin_right = 320.0
-margin_bottom = 176.0
+[node name="About" type="Button" parent="MenuUI/UI/Button2"]
+margin_left = 2.0
+margin_top = 27.0
+margin_right = 42.0
+margin_bottom = 46.0
 size_flags_horizontal = 8
 custom_fonts/font = SubResource( 5 )
 text = "About"
-
-[node name="Control" type="Control" parent="MenuUI/UI/Buttons/Button2"]
-margin_top = 180.0
-margin_right = 320.0
-margin_bottom = 180.0
 
 [node name="SettingPopUp" type="MarginContainer" parent="MenuUI/UI"]
 visible = false
@@ -400,11 +397,11 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 20, 0 )
 
 [connection signal="tween_completed" from="BackGround/Tltle/Tween" to="BackGround/Tltle" method="_on_tween_completed"]
-[connection signal="pressed" from="MenuUI/UI/Buttons/Button/HBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="MenuUI/UI/Buttons/Button/HBoxContainer/Setting" to="." method="_on_Setting_pressed"]
-[connection signal="pressed" from="MenuUI/UI/Buttons/Button/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="MenuUI/UI/Buttons/Button2/Rule" to="." method="_on_Rule_pressed"]
-[connection signal="pressed" from="MenuUI/UI/Buttons/Button2/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Button2/Rule" to="." method="_on_Rule_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Button2/About" to="." method="_on_About_pressed"]
 [connection signal="value_changed" from="MenuUI/UI/SettingPopUp/VBoxContainer/Volume/Slider" to="MenuUI/UI/SettingPopUp/VBoxContainer/Volume/Slider" method="_on_value_changed"]
 [connection signal="pressed" from="MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen/CheckBox" to="MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen/CheckBox" method="_on_CheckBox_pressed"]
 [connection signal="pressed" from="MenuUI/UI/SettingPopUp/VBoxContainer/Button/Back" to="MenuUI/UI/SettingPopUp" method="_on_Back_pressed"]

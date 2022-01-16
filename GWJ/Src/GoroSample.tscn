@@ -1,3 +1,55 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Asset/spike_trap.png" type="Texture" id=1]
+[ext_resource path="res://Src/Object/Spike.gd" type="Script" id=2]
+[ext_resource path="res://Src/Actor/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 8 )
+
+[node name="Sample" type="Node2D"]
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2( 83, 25 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Spike"]
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="DetectArea" type="CollisionShape2D" parent="Spike"]
+shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="Spike"]
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 27, 17 )
+
+[connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
+[connection signal="body_exited" from="Spike" to="Spike" method="_on_Spike_body_exited"]

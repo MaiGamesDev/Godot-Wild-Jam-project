@@ -137,7 +137,7 @@ __meta__ = {
 [node name="Rule" type="Button" parent="MenuUI/UI/Button2"]
 margin_left = 10.0
 margin_top = 4.0
-margin_right = 48.0
+margin_right = 42.0
 margin_bottom = 23.0
 size_flags_horizontal = 8
 custom_fonts/font = SubResource( 4 )
@@ -365,11 +365,11 @@ margin_top = 24.0
 margin_right = 320.0
 margin_bottom = 131.0
 custom_fonts/font = SubResource( 11 )
-text = "    WASD - Move
+text = "    WASD/ZQSD - Move
   
-    Avoid the tarps and enmies
+    Avoid the traps and enemies
 
-    Collect the treasure!"
+    Collect the treasures!"
 
 [node name="Control2" type="Control" parent="MenuUI/UI/RulePopUp/VBoxContainer"]
 margin_top = 135.0

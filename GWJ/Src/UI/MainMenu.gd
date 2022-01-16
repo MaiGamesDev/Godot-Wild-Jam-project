@@ -14,3 +14,11 @@ func _on_Setting_pressed():
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+func _on_Rule_pressed():
+	$MenuUI/UI/RulePopUp.show()
+
+
+func _on_About_pressed():
+	$MenuUI/UI/AboutPopUP.show()

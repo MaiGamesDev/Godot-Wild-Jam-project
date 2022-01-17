@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Src/EnemyCrab.gd" type="Script" id=1]
+[ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Art/crab.png" type="Texture" id=2]
 [ext_resource path="res://Asset/Art/canon.png" type="Texture" id=3]
-[ext_resource path="res://Src/Cannon.gd" type="Script" id=5]
+[ext_resource path="res://Src/Actor/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/BossBattle/Cannon.gd" type="Script" id=5]
 
 [node name="Sample" type="Node2D"]
 
@@ -46,6 +47,9 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Crab"]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 111, 93 )
 
 [connection signal="pressed" from="Cannon/Button" to="Cannon" method="_on_Button_pressed"]
 [connection signal="pressed" from="Cannon2/Button" to="Cannon2" method="_on_Button_pressed"]

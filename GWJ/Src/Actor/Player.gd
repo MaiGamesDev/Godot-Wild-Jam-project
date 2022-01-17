@@ -2,13 +2,15 @@ class_name Player
 
 extends KinematicBody2D
 
+signal on_player_hurt(damage)
+
 export var speed = 40
-export(int) var max_health = 6
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 
-onready var health = max_health
+func _ready() -> void:
+	connect("on_player_hurt", GameManager, "on_player_hurt")
 
 func _process(_delta: float) -> void:
 	direction = Vector2.ZERO
@@ -21,7 +23,4 @@ func _physics_process(_delta: float) -> void:
 	velocity = move_and_slide(velocity)
 
 func on_hit(damage):
-	health -= damage
-	print("player health " + str(health))
-	if health <= 0:
-		print("player dies")
+	emit_signal("on_player_hurt", damage)

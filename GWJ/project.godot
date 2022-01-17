@@ -36,6 +36,10 @@ config/name="GWJ"
 run/main_scene="res://Src/UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://Src/Main/GameManager.gd"
+
 [display]
 
 window/size/width=320

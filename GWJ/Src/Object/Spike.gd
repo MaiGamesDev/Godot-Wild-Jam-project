@@ -19,5 +19,5 @@ func _on_body_entered(body: Node) -> void:
 	target = body
 	activate()
 
-func _on_Spike_body_exited(_body: Node) -> void:
+func _on_body_exited(_body: Node) -> void:
 	target = null

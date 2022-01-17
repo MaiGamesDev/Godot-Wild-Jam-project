@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/canon.png-cf30090cf9cc6f72e40df76f1064e28c.stex"
+path="res://.import/Bling_king.png-4a5d8232cca2e6aecf4a525f0e17a065.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Art/canon.png"
-dest_files=[ "res://.import/canon.png-cf30090cf9cc6f72e40df76f1064e28c.stex" ]
+source_file="res://Asset/Art/Bling_king.png"
+dest_files=[ "res://.import/Bling_king.png-4a5d8232cca2e6aecf4a525f0e17a065.stex" ]
 
 [params]
 

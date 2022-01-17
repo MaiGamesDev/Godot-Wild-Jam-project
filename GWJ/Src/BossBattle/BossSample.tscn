@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=1]
-[ext_resource path="res://Asset/Art/crab.png" type="Texture" id=2]
-[ext_resource path="res://Asset/Art/canon.png" type="Texture" id=3]
+[ext_resource path="res://Asset/Art/Bling_king.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Art/Cannon.png" type="Texture" id=3]
 [ext_resource path="res://Src/Actor/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/BossBattle/Cannon.gd" type="Script" id=5]
 [ext_resource path="res://Src/BossBattle/ShellSpawner.gd" type="Script" id=6]

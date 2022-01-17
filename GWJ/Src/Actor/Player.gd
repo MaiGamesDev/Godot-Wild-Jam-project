@@ -20,5 +20,6 @@ func _physics_process(_delta: float) -> void:
 
 func on_hit(damage):
 	health -= damage
+	print("player health " + str(health))
 	if health <= 0:
 		print("player dies")

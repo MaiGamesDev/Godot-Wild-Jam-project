@@ -1,3 +1,20 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Asset/Art/GameOver/GameOverBG.jpg" type="Texture" id=1]
+[ext_resource path="res://Asset/Art/GameOver/GameOverMAN.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Art/GameOver/GameOverTEXT.png" type="Texture" id=3]
 
 [node name="GameOver" type="Node2D"]
+
+[node name="BackGround" type="Sprite" parent="."]
+scale = Vector2( 0.166667, 0.166667 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="GameOverMan" type="Sprite" parent="BackGround"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="GameOverText" type="Sprite" parent="BackGround"]
+texture = ExtResource( 3 )
+centered = false

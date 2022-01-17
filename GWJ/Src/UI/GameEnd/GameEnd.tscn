@@ -173,7 +173,7 @@ margin_right = 191.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 10, 0 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EndUI/UI"]
+[node name="Buttons" type="HBoxContainer" parent="EndUI/UI"]
 margin_top = 143.0
 margin_right = 320.0
 margin_bottom = 162.0
@@ -183,25 +183,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" type="Control" parent="EndUI/UI/HBoxContainer"]
+[node name="Control2" type="Control" parent="EndUI/UI/Buttons"]
 margin_left = 102.0
 margin_right = 104.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 2, 0 )
 
-[node name="Retry" type="Button" parent="EndUI/UI/HBoxContainer"]
+[node name="Retry" type="Button" parent="EndUI/UI/Buttons"]
 margin_left = 108.0
 margin_right = 146.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 4 )
 text = "Retry"
 
-[node name="Control" type="Control" parent="EndUI/UI/HBoxContainer"]
+[node name="Control" type="Control" parent="EndUI/UI/Buttons"]
 margin_left = 150.0
 margin_right = 150.0
 margin_bottom = 19.0
 
-[node name="MainMenu" type="Button" parent="EndUI/UI/HBoxContainer"]
+[node name="MainMenu" type="Button" parent="EndUI/UI/Buttons"]
 margin_left = 154.0
 margin_right = 217.0
 margin_bottom = 19.0

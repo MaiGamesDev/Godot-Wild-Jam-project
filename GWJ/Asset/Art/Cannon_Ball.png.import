@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shell.png-e87519009a86f995a7948323f465dc94.stex"
+path="res://.import/Cannon_Ball.png-50863af1952fc3c0f20ac632e48affe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Art/shell.png"
-dest_files=[ "res://.import/shell.png-e87519009a86f995a7948323f465dc94.stex" ]
+source_file="res://Asset/Art/Cannon_Ball.png"
+dest_files=[ "res://.import/Cannon_Ball.png-50863af1952fc3c0f20ac632e48affe2.stex" ]
 
 [params]
 

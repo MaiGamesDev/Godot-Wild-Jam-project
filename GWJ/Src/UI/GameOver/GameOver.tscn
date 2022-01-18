@@ -148,3 +148,4 @@ custom_fonts/font = SubResource( 3 )
 text = "Main Menu"
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_tween_completed"]
+[connection signal="pressed" from="GameOverUI/UI/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]

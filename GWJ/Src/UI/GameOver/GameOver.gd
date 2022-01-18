@@ -14,3 +14,7 @@ func _on_tween_completed(object, key):
 	$AnimationPlayer.play("fadeIn")
 
 
+
+
+func _on_MainMenu_pressed():
+	get_tree().change_scene("res://Src/UI/MainMenu/MainMenu.tscn")

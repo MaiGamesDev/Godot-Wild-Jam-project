@@ -212,3 +212,5 @@ text = "Main Menu"
 root_node = NodePath("../BackGround")
 anims/FadeIn = SubResource( 1 )
 anims/RESET = SubResource( 2 )
+
+[connection signal="pressed" from="EndUI/UI/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]

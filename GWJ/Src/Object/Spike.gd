@@ -7,17 +7,14 @@ var target = null
 onready var animated = $AnimatedSprite
 onready var timer = $Timer
 
-func activate():
-	timer.start(0.3)
-	yield(timer, "timeout")
-	
-	if target != null and target.has_method("on_hit"):
-		target.on_hit(damage)
-
 func _on_body_entered(body: Node) -> void:
 	animated.frame = 0
 	target = body
-	activate()
+	timer.start(0.5)
 
 func _on_body_exited(_body: Node) -> void:
 	target = null
+
+func _on_timeout() -> void:
+	if target != null and target.has_method("on_hit"):
+		target.on_hit(damage)

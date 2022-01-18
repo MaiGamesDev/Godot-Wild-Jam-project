@@ -3,6 +3,7 @@ class_name Player
 extends KinematicBody2D
 
 signal on_player_hurt(damage)
+signal on_point_gain(gained)
 
 export var speed = 40
 
@@ -11,6 +12,7 @@ var velocity = Vector2.ZERO
 
 func _ready() -> void:
 	connect("on_player_hurt", GameManager, "on_player_hurt")
+	connect("on_point_gain", GameManager, "on_point_gain")
 
 func _process(_delta: float) -> void:
 	direction = Vector2.ZERO
@@ -24,3 +26,6 @@ func _physics_process(_delta: float) -> void:
 
 func on_hit(damage):
 	emit_signal("on_player_hurt", damage)
+
+func on_gain(point):
+	emit_signal("on_point_gain", point)

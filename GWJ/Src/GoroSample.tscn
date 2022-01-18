@@ -129,6 +129,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Point" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Point"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_bottom = 14.0
+text = "Point: 1"
+
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Spike" to="Spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Enemy/DetectZone" to="Enemy" method="_on_DetectZone_body_entered"]

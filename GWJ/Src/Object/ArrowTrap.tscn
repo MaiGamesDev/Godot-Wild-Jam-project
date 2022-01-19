@@ -7,6 +7,9 @@ extents = Vector2( 10, 19 )
 
 [node name="ArrowTrap" type="Area2D"]
 position = Vector2( 240, 16 )
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 script = ExtResource( 1 )
 fire_direction = 2
 

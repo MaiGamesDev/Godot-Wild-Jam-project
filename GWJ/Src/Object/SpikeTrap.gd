@@ -10,7 +10,7 @@ onready var timer = $Timer
 func _on_body_entered(body: Node) -> void:
 	animated.frame = 0
 	target = body
-	timer.start(0.5)
+	timer.start(0.7)
 
 func _on_body_exited(_body: Node) -> void:
 	target = null

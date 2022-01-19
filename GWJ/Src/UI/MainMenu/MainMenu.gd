@@ -22,3 +22,5 @@ func _on_Rule_pressed():
 
 func _on_About_pressed():
 	$MenuUI/UI/AboutPopUP.show()
+
+

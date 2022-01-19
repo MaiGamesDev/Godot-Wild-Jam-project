@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Asset/Art/GameOver/GameOverBG.jpg" type="Texture" id=1]
 [ext_resource path="res://Asset/Art/GameOver/GameOverMAN.png" type="Texture" id=2]
 [ext_resource path="res://Asset/Art/GameOver/GameOverTEXT.png" type="Texture" id=3]
 [ext_resource path="res://Src/UI/GameOver/GameOver.gd" type="Script" id=4]
 [ext_resource path="res://Resource/Font/kimberley.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Src/UI/Button.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -134,6 +135,7 @@ margin_right = 146.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 3 )
 text = "Retry"
+script = ExtResource( 6 )
 
 [node name="Control" type="Control" parent="GameOverUI/UI/Buttons"]
 margin_left = 150.0
@@ -146,6 +148,9 @@ margin_right = 217.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 3 )
 text = "Main Menu"
+script = ExtResource( 6 )
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_tween_completed"]
+[connection signal="pressed" from="GameOverUI/UI/Buttons/Retry" to="GameOverUI/UI/Buttons/Retry" method="_on_pressed"]
 [connection signal="pressed" from="GameOverUI/UI/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="GameOverUI/UI/Buttons/MainMenu" to="GameOverUI/UI/Buttons/MainMenu" method="_on_pressed"]

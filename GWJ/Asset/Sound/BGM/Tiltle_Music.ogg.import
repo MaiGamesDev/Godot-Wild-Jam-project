@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tiltle_Music.ogg-930b059c9989ad23e7cf22450d745470.oggstr"
+
+[deps]
+
+source_file="res://Asset/Sound/BGM/Tiltle_Music.ogg"
+dest_files=[ "res://.import/Tiltle_Music.ogg-930b059c9989ad23e7cf22450d745470.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/UI/MainMenu/AboutPopUp.gd" type="Script" id=1]
 [ext_resource path="res://Src/UI/MainMenu/FullScreenBox.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Src/UI/MainMenu/Tltle.gd" type="Script" id=8]
 [ext_resource path="res://Asset/Art/Splash/ShipwreckAdventure-Main menu background-TITLE.png" type="Texture" id=9]
 [ext_resource path="res://Asset/Art/Splash/ShipwreckAdventure-Main menu background.jpg" type="Texture" id=10]
+[ext_resource path="res://Src/UI/MainMenu/TitleMusic.gd" type="Script" id=11]
+[ext_resource path="res://Asset/Sound/BGM/Tiltle_Music.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Src/UI/Button.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -98,6 +101,7 @@ margin_right = 36.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
+script = ExtResource( 13 )
 
 [node name="Control2" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
 margin_left = 40.0
@@ -110,6 +114,7 @@ margin_right = 90.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 2 )
 text = "Setting"
+script = ExtResource( 13 )
 
 [node name="Control" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
 margin_left = 94.0
@@ -122,6 +127,7 @@ margin_right = 128.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 3 )
 text = "Exit"
+script = ExtResource( 13 )
 
 [node name="Button2" type="VBoxContainer" parent="MenuUI/UI"]
 margin_left = 267.0
@@ -143,6 +149,7 @@ size_flags_horizontal = 8
 custom_fonts/font = SubResource( 4 )
 text = "Rule"
 align = 0
+script = ExtResource( 13 )
 
 [node name="About" type="Button" parent="MenuUI/UI/Button2"]
 margin_left = 2.0
@@ -152,6 +159,7 @@ margin_bottom = 46.0
 size_flags_horizontal = 8
 custom_fonts/font = SubResource( 5 )
 text = "About"
+script = ExtResource( 13 )
 
 [node name="SettingPopUp" type="MarginContainer" parent="MenuUI/UI"]
 visible = false
@@ -267,6 +275,8 @@ margin_right = 296.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 8 )
 text = "Back"
+script = ExtResource( 13 )
+sound = "res://Asset/Sound/SFX/Button_Cancle.wav"
 
 [node name="Control" type="Control" parent="MenuUI/UI/SettingPopUp/VBoxContainer/Button"]
 margin_left = 300.0
@@ -328,6 +338,8 @@ margin_right = 296.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 10 )
 text = "Back"
+script = ExtResource( 13 )
+sound = "res://Asset/Sound/SFX/Button_Cancle.wav"
 
 [node name="Control" type="Control" parent="MenuUI/UI/AboutPopUP/VBoxContainer/Button"]
 margin_left = 300.0
@@ -389,6 +401,8 @@ margin_right = 296.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 12 )
 text = "Back"
+script = ExtResource( 13 )
+sound = "res://Asset/Sound/SFX/Button_Cancle.wav"
 
 [node name="Control" type="Control" parent="MenuUI/UI/RulePopUp/VBoxContainer/Button"]
 margin_left = 300.0
@@ -396,14 +410,27 @@ margin_right = 320.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 20, 0 )
 
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+script = ExtResource( 11 )
+
 [connection signal="tween_completed" from="BackGround/Tltle/Tween" to="BackGround/Tltle" method="_on_tween_completed"]
 [connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Start" to="MenuUI/UI/Buttons1/HBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Setting" to="MenuUI/UI/Buttons1/HBoxContainer/Setting" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Buttons1/HBoxContainer/Exit" to="MenuUI/UI/Buttons1/HBoxContainer/Exit" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/Button2/Rule" to="." method="_on_Rule_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Button2/Rule" to="MenuUI/UI/Button2/Rule" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/Button2/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="MenuUI/UI/Button2/About" to="MenuUI/UI/Button2/About" method="_on_pressed"]
 [connection signal="value_changed" from="MenuUI/UI/SettingPopUp/VBoxContainer/Volume/Slider" to="MenuUI/UI/SettingPopUp/VBoxContainer/Volume/Slider" method="_on_value_changed"]
 [connection signal="pressed" from="MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen/CheckBox" to="MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen/CheckBox" method="_on_CheckBox_pressed"]
 [connection signal="pressed" from="MenuUI/UI/SettingPopUp/VBoxContainer/Button/Back" to="MenuUI/UI/SettingPopUp" method="_on_Back_pressed"]
+[connection signal="pressed" from="MenuUI/UI/SettingPopUp/VBoxContainer/Button/Back" to="MenuUI/UI/SettingPopUp/VBoxContainer/Button/Back" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/AboutPopUP/VBoxContainer/Button/Back" to="MenuUI/UI/AboutPopUP" method="_on_Back_pressed"]
+[connection signal="pressed" from="MenuUI/UI/AboutPopUP/VBoxContainer/Button/Back" to="MenuUI/UI/AboutPopUP/VBoxContainer/Button/Back" method="_on_pressed"]
 [connection signal="pressed" from="MenuUI/UI/RulePopUp/VBoxContainer/Button/Back" to="MenuUI/UI/RulePopUp" method="_on_Back_pressed"]
+[connection signal="pressed" from="MenuUI/UI/RulePopUp/VBoxContainer/Button/Back" to="MenuUI/UI/RulePopUp/VBoxContainer/Button/Back" method="_on_pressed"]

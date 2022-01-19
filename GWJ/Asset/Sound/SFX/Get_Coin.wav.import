@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/click_1.wav-71202492ef7dee24cae7de301c4682c0.sample"
+path="res://.import/Get_Coin.wav-9e87da46cdfb28bce27e6179173d37fb.sample"
 
 [deps]
 
-source_file="res://Asset/Sound/click_1.wav"
-dest_files=[ "res://.import/click_1.wav-71202492ef7dee24cae7de301c4682c0.sample" ]
+source_file="res://Asset/Sound/SFX/Get_Coin.wav"
+dest_files=[ "res://.import/Get_Coin.wav-9e87da46cdfb28bce27e6179173d37fb.sample" ]
 
 [params]
 

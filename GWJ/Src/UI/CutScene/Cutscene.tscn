@@ -172,6 +172,7 @@ centered = false
 
 [node name="CutSceneB" type="Sprite" parent="CutsceneA-alternative"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 3 )
 centered = false
 

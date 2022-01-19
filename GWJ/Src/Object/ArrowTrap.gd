@@ -1,7 +1,10 @@
 extends Area2D
 
-onready var arrow = $Arrow
+const Arrow = preload("res://Src/Object/Arrow.tscn")
+
+export(int, "Up", "Right", "Down", "Left") var fire_direction
 
 func _on_body_entered(_body: Node) -> void:
-	if arrow != null:
-		arrow.fire()
+	var arrow = Arrow.instance()
+	add_child(arrow)
+	arrow.start(fire_direction)

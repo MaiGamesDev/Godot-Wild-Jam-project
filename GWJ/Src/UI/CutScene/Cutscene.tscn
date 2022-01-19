@@ -1,9 +1,276 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Asset/Art/CutScene/cutsceneA.jpg" type="Texture" id=1]
+[ext_resource path="res://Src/UI/Button.gd" type="Script" id=2]
+[ext_resource path="res://Asset/Art/CutScene/cutSceneB.jpg" type="Texture" id=3]
+[ext_resource path="res://Asset/Art/CutScene/cutsceneB-alternative.jpg" type="Texture" id=4]
+[ext_resource path="res://Asset/Art/CutScene/cutSceneC-alternative.jpg" type="Texture" id=5]
+[ext_resource path="res://Asset/Art/CutScene/cutSceneC.jpg" type="Texture" id=6]
+[ext_resource path="res://Asset/Art/CutScene/cutsceneA-alternative.jpg" type="Texture" id=7]
+[ext_resource path="res://Src/UI/CutScene/Cutscene.gd" type="Script" id=8]
+[ext_resource path="res://Resource/Font/kimberley.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "cutsceneA"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneA-alternative/CutsceneA:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneA-alternative/CutsceneA:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "cutsceneB"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneA-alternative/CutsceneB-alternative:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneA-alternative/CutSceneB:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CutsceneA-alternative/CutSceneB:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "cutsceneC"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneA-alternative/CutSceneC-alternative:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneA-alternative/CutSceneC:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CutsceneA-alternative/CutSceneC:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="CutScene" type="Node2D"]
+script = ExtResource( 8 )
 
-[node name="CutsceneA" type="Sprite" parent="."]
-position = Vector2( 1, 163 )
+[node name="CutsceneA-alternative" type="Sprite" parent="."]
+scale = Vector2( 0.166667, 0.166667 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CutsceneA" type="Sprite" parent="CutsceneA-alternative"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutsceneA"]
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 1743.0
+margin_bottom = 258.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutsceneA/MarginContainer"]
+margin_right = 1575.0
+margin_bottom = 234.0
+color = Color( 0.780392, 0.968627, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CutsceneA-alternative/CutsceneA/MarginContainer"]
+modulate = Color( 0.309804, 0.164706, 0, 1 )
+margin_top = 39.0
+margin_right = 1575.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 4 )
+text = "  One day while sailing, 
+ You found a old shipwreck."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneB-alternative" type="Sprite" parent="CutsceneA-alternative"]
+visible = false
+texture = ExtResource( 4 )
+centered = false
+
+[node name="CutSceneB" type="Sprite" parent="CutsceneA-alternative"]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutSceneB"]
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 1743.0
+margin_bottom = 258.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutSceneB/MarginContainer"]
+margin_right = 1594.0
+margin_bottom = 234.0
+color = Color( 0.780392, 0.968627, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CutsceneA-alternative/CutSceneB/MarginContainer"]
+modulate = Color( 0.309804, 0.164706, 0, 1 )
+margin_top = 39.0
+margin_right = 1594.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 4 )
+text = "  It was the ship of the legendary pirate!
+ Surely there also must be a famous treasure there."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutSceneC-alternative" type="Sprite" parent="CutsceneA-alternative"]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CutSceneC" type="Sprite" parent="CutsceneA-alternative"]
+visible = false
+texture = ExtResource( 6 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutSceneC"]
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 1743.0
+margin_bottom = 258.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutSceneC/MarginContainer"]
+margin_right = 1575.0
+margin_bottom = 234.0
+color = Color( 0.780392, 0.968627, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CutsceneA-alternative/CutSceneC/MarginContainer"]
+modulate = Color( 0.309804, 0.164706, 0, 1 )
+margin_top = 39.0
+margin_right = 1575.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 4 )
+text = "  You just decided to go straight to there.
+ But it doesn't seem that easy..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cutsceneA = SubResource( 2 )
+anims/cutsceneB = SubResource( 1 )
+anims/cutsceneC = SubResource( 3 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="Button" parent="UI/Control"]
+margin_left = 272.0
+margin_top = 158.0
+margin_right = 314.0
+margin_bottom = 178.0
+rect_scale = Vector2( 0.8, 0.8 )
+text = "Next"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+sound = "res://Asset/Sound/SFX/book_flipping.wav"
+db = -10
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="UI/Control/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="UI/Control/Next" to="UI/Control/Next" method="_on_pressed"]

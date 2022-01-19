@@ -7,7 +7,7 @@ func _ready():
 		$MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen.hide()
 
 func _on_Start_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Src/UI/CutScene/Cutscene.tscn")
 
 func _on_Setting_pressed():
 	$MenuUI/UI/SettingPopUp.show()

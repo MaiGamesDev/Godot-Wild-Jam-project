@@ -18,7 +18,7 @@ font_data = ExtResource( 9 )
 resource_name = "cutsceneA"
 length = 2.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CutsceneA-alternative/CutsceneA:visible")
+tracks/0/path = NodePath("CutsceneA-picture/CutsceneA:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CutsceneA-alternative/CutsceneA:modulate")
+tracks/1/path = NodePath("CutsceneA-picture/CutsceneA:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -46,7 +46,7 @@ tracks/1/keys = {
 resource_name = "cutsceneB"
 length = 2.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CutsceneA-alternative/CutsceneB-alternative:visible")
+tracks/0/path = NodePath("CutsceneA-picture/CutsceneB-picture:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CutsceneA-alternative/CutSceneB:visible")
+tracks/1/path = NodePath("CutsceneA-picture/CutSceneB:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -70,7 +70,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CutsceneA-alternative/CutSceneB:modulate")
+tracks/2/path = NodePath("CutsceneA-picture/CutSceneB:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -86,7 +86,7 @@ tracks/2/keys = {
 resource_name = "cutsceneC"
 length = 2.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CutsceneA-alternative/CutSceneC-alternative:visible")
+tracks/0/path = NodePath("CutsceneA-picture/CutSceneC:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -98,45 +98,44 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CutsceneA-alternative/CutSceneC:visible")
+tracks/1/path = NodePath("CutsceneA-picture/CutSceneC:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CutsceneA-alternative/CutSceneC:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 2, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("CutsceneA-picture/CutSceneC_picture:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="CutScene" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="CutsceneA-alternative" type="Sprite" parent="."]
+[node name="CutsceneA-picture" type="Sprite" parent="."]
 scale = Vector2( 0.166667, 0.166667 )
-texture = ExtResource( 7 )
-centered = false
-
-[node name="CutsceneA" type="Sprite" parent="CutsceneA-alternative"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutsceneA"]
+[node name="CutsceneA" type="Sprite" parent="CutsceneA-picture"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-picture/CutsceneA"]
 margin_left = 168.0
 margin_top = 24.0
 margin_right = 1743.0
@@ -145,7 +144,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutsceneA/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-picture/CutsceneA/MarginContainer"]
 margin_right = 1575.0
 margin_bottom = 234.0
 color = Color( 0.780392, 0.968627, 1, 1 )
@@ -153,7 +152,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CutsceneA-alternative/CutsceneA/MarginContainer"]
+[node name="Label" type="Label" parent="CutsceneA-picture/CutsceneA/MarginContainer"]
 modulate = Color( 0.309804, 0.164706, 0, 1 )
 margin_top = 39.0
 margin_right = 1575.0
@@ -165,18 +164,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CutsceneB-alternative" type="Sprite" parent="CutsceneA-alternative"]
+[node name="CutsceneB-picture" type="Sprite" parent="CutsceneA-picture"]
 visible = false
-texture = ExtResource( 4 )
-centered = false
-
-[node name="CutSceneB" type="Sprite" parent="CutsceneA-alternative"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutSceneB"]
+[node name="CutSceneB" type="Sprite" parent="CutsceneA-picture"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-picture/CutSceneB"]
 margin_left = 168.0
 margin_top = 24.0
 margin_right = 1743.0
@@ -185,7 +184,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutSceneB/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-picture/CutSceneB/MarginContainer"]
 margin_right = 1594.0
 margin_bottom = 234.0
 color = Color( 0.780392, 0.968627, 1, 1 )
@@ -193,7 +192,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CutsceneA-alternative/CutSceneB/MarginContainer"]
+[node name="Label" type="Label" parent="CutsceneA-picture/CutSceneB/MarginContainer"]
 modulate = Color( 0.309804, 0.164706, 0, 1 )
 margin_top = 39.0
 margin_right = 1594.0
@@ -205,17 +204,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CutSceneC-alternative" type="Sprite" parent="CutsceneA-alternative"]
-visible = false
-texture = ExtResource( 5 )
-centered = false
-
-[node name="CutSceneC" type="Sprite" parent="CutsceneA-alternative"]
+[node name="CutSceneC_picture" type="Sprite" parent="CutsceneA-picture"]
 visible = false
 texture = ExtResource( 6 )
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-alternative/CutSceneC"]
+[node name="CutSceneC" type="Sprite" parent="CutsceneA-picture"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneA-picture/CutSceneC"]
 margin_left = 168.0
 margin_top = 24.0
 margin_right = 1743.0
@@ -224,7 +224,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="CutsceneA-alternative/CutSceneC/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="CutsceneA-picture/CutSceneC/MarginContainer"]
 margin_right = 1575.0
 margin_bottom = 234.0
 color = Color( 0.780392, 0.968627, 1, 1 )
@@ -232,7 +232,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CutsceneA-alternative/CutSceneC/MarginContainer"]
+[node name="Label" type="Label" parent="CutsceneA-picture/CutSceneC/MarginContainer"]
 modulate = Color( 0.309804, 0.164706, 0, 1 )
 margin_top = 39.0
 margin_right = 1575.0

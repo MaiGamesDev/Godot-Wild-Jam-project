@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Src/Actor/KrakenLeg.gd" type="Script" id=1]
+[ext_resource path="res://Asset/enemy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10, 48 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 48, 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10, 48 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 48, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 4, 6 )
+
+[node name="KrakenLeg" type="KinematicBody2D"]
+position = Vector2( -105, -151 )
+collision_layer = 0
+collision_mask = 17
+script = ExtResource( 1 )
+speed = 120
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -7 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 7 )
+
+[node name="DetectUp" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 0.533333 )
+position = Vector2( 0, -7 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectUp"]
+position = Vector2( 0, -48 )
+shape = SubResource( 10 )
+
+[node name="DetectRight" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 0.533333 )
+position = Vector2( 0, -7 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRight"]
+position = Vector2( 48, 0 )
+shape = SubResource( 11 )
+
+[node name="DetectDown" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 0.533333 )
+position = Vector2( 0, -7 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectDown"]
+position = Vector2( 0, 48 )
+shape = SubResource( 12 )
+
+[node name="DetectLeft" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 0.533333 )
+position = Vector2( 0, -7 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectLeft"]
+position = Vector2( -48, 0 )
+shape = SubResource( 13 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -7 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="DetectUp" to="." method="_on_DetectUp_area_entered"]
+[connection signal="area_entered" from="DetectRight" to="." method="_on_DetectRight_area_entered"]
+[connection signal="area_entered" from="DetectDown" to="." method="_on_DetectDown_area_entered"]
+[connection signal="area_entered" from="DetectLeft" to="." method="_on_DetectLeft_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]

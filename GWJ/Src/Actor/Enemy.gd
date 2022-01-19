@@ -33,7 +33,6 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 
-
 func _on_DetectZone_area_entered(area: Area2D) -> void:
 	area_exit = false
 	if target == null:

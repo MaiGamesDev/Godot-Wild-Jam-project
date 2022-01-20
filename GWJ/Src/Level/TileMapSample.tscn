@@ -169,6 +169,7 @@ frame_2/delay_sec = 0.0
 [node name="Sample" type="Node2D"]
 
 [node name="Level1" type="Node2D" parent="."]
+visible = false
 
 [node name="TileStuff" type="TileMap" parent="Level1"]
 tile_set = SubResource( 1 )

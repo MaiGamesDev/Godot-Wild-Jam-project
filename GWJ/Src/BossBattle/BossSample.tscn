@@ -44,6 +44,10 @@ texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Crab"]
 
+[node name="ShootCool" type="Timer" parent="Crab"]
+wait_time = 2.0
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 111, 93 )
 
@@ -54,3 +58,4 @@ script = ExtResource( 6 )
 [connection signal="area_entered" from="Cannon" to="Cannon" method="_on_area_entered"]
 [connection signal="area_entered" from="Cannon2" to="Cannon2" method="_on_area_entered"]
 [connection signal="tween_completed" from="Crab/Tween" to="Crab" method="_on_tween_completed"]
+[connection signal="timeout" from="Crab/ShootCool" to="Crab" method="_on_ShootCool_timeout"]

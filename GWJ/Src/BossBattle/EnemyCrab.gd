@@ -12,3 +12,16 @@ func _start_tween():
 func _on_tween_completed(object, key):
 	tween_values.invert()
 	_start_tween()
+
+func shoot():
+	var bullet = load("res://Src/BossBattle/BossBullet.tscn").instance()
+	var player = $"../Player"
+	var bullet_direction = (player.global_position - global_position).normalized()
+	bullet.direction = bullet_direction
+	bullet.position = position
+	get_parent().add_child(bullet)
+
+
+func _on_ShootCool_timeout():
+	shoot()
+	$ShootCool.wait_time = 2.0

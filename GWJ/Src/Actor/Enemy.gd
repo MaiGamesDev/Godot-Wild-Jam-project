@@ -38,7 +38,7 @@ func _on_DetectZone_area_entered(area: Area2D) -> void:
 	if target == null:
 		target = area.get_parent()
 
-func _on_DetectZone_area_exited(area: Area2D) -> void:
+func _on_DetectZone_area_exited(_area: Area2D) -> void:
 	area_exit = true
 	if body_exit:
 		target = null
@@ -48,7 +48,7 @@ func _on_DetectZone_body_entered(body: Node) -> void:
 	if target == null:
 		target = body
 
-func _on_DetectZone_body_exited(body: Node) -> void:
+func _on_DetectZone_body_exited(_body: Node) -> void:
 	body_exit = true
 	if area_exit:
 		target = null

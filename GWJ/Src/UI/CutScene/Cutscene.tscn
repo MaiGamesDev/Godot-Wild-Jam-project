@@ -131,6 +131,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="CutsceneA" type="Sprite" parent="CutsceneA-picture"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 7 )
 centered = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Src/Object/SpikeTrap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Object/ArrowTrap.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Src/Actor/Zombie.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Actor/KrakenLeg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Actor/Ghost.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Object/Necklace.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Object/Coin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Object/Gem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Object/Algae.tscn" type="PackedScene" id=11]
@@ -47,14 +48,28 @@ position = Vector2( -161, 6 )
 
 [node name="KrakenLeg" parent="Enemies" instance=ExtResource( 5 )]
 
-[node name="Coin" parent="." instance=ExtResource( 9 )]
+[node name="Loot" type="Node2D" parent="."]
+
+[node name="Coin" parent="Loot" instance=ExtResource( 9 )]
 position = Vector2( 44, 105 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
-[node name="Gem" parent="." instance=ExtResource( 10 )]
+[node name="Gem" parent="Loot" instance=ExtResource( 10 )]
 position = Vector2( 142, 76 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
-[node name="Algae" parent="." instance=ExtResource( 11 )]
+[node name="Necklace" parent="Loot" instance=ExtResource( 7 )]
+position = Vector2( 119, 5 )
+
+[node name="Algae" parent="Loot" instance=ExtResource( 11 )]
 position = Vector2( 207, 104 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 12 )

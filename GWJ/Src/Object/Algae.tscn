@@ -16,4 +16,4 @@ texture = ExtResource( 1 )
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

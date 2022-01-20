@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bling_King_Walk.png-8e19047ca607c8bf562f3b441e219731.stex"
+path="res://.import/Bling_King_Spritesheet.png-9de87e68194de212023ba42dec378a4f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Art/Boss/Bling_King_Walk.png"
-dest_files=[ "res://.import/Bling_King_Walk.png-8e19047ca607c8bf562f3b441e219731.stex" ]
+source_file="res://Asset/Art/Boss/Bling_King_Spritesheet.png"
+dest_files=[ "res://.import/Bling_King_Spritesheet.png-9de87e68194de212023ba42dec378a4f.stex" ]
 
 [params]
 

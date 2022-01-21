@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Src/Actor/Player.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Shell",
+"language": "GDScript",
+"path": "res://Src/BossBattle/Shell.gd"
 } ]
 _global_script_class_icons={
 "Cannon": "",
 "ItemShell": "",
-"Player": ""
+"Player": "",
+"Shell": ""
 }
 
 [application]
@@ -117,6 +123,8 @@ open_PauseMenu={
 2d_physics/layer_3="PlayerGround"
 2d_physics/layer_4="PlayerHurtbox"
 2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Bullet"
+2d_physics/layer_7="Item"
 
 [physics]
 

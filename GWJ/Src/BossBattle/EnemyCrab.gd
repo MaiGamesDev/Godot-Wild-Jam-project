@@ -1,5 +1,6 @@
-extends Node2D
+extends Area2D
 
+var boss_life = 3
 var tween_values = [50, 260]
 
 func _ready():
@@ -29,7 +30,27 @@ func _on_ShootCool_timeout():
 	shoot()
 	$ShootCool.wait_time = 3.0
 
+func hurt():
+	boss_life -= 1
+	print(boss_life)
+	if boss_life < 1:
+		die()
+	else:
+		$Sprite.play("hurt")
+
+func die():
+	$Tween.stop_all()
+	$ShootCool.stop()
+	$Sprite.play("die")
 
 func _on_animation_finished():
+	if $Sprite.animation == "die":
+		queue_free()
 	$Sprite.frame = 0
 	$Sprite.play("walk")
+
+
+func _on_body_entered(body):
+	if body is Shell:
+		body.queue_free()
+		hurt()

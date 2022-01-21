@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Art/Boss/Bling_King_Walk.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Asset/Art/Boss/Bling_King_Die.png" type="Texture" id=7]
 [ext_resource path="res://Asset/Art/Boss/Bling_King_Atck.png" type="Texture" id=8]
 [ext_resource path="res://Asset/Art/Boss/Bling_King_Hurt.png" type="Texture" id=9]
+[ext_resource path="res://Src/UI/UIManager.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.5, 24 )
@@ -133,59 +134,106 @@ animations = [ {
 "speed": 6.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 42, 18.5 )
+
 [node name="Sample" type="Node2D"]
 
-[node name="Cannon" type="Area2D" parent="."]
+[node name="Actors" type="YSort" parent="."]
+
+[node name="Cannon" type="Area2D" parent="Actors"]
 position = Vector2( 50, 143 )
+collision_mask = 64
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Cannon"]
 position = Vector2( -0.5, -3 )
 shape = SubResource( 1 )
 
-[node name="Canon" type="Sprite" parent="Cannon"]
+[node name="Canon" type="Sprite" parent="Actors/Cannon"]
 texture = ExtResource( 3 )
 
-[node name="Cannon2" type="Area2D" parent="."]
-position = Vector2( 257, 143 )
+[node name="Cannon2" type="Area2D" parent="Actors"]
+position = Vector2( 266, 143 )
 scale = Vector2( -1, 1 )
+collision_mask = 64
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Cannon2"]
 position = Vector2( -0.5, -3 )
 shape = SubResource( 1 )
 
-[node name="Canon" type="Sprite" parent="Cannon2"]
+[node name="Canon" type="Sprite" parent="Actors/Cannon2"]
 texture = ExtResource( 3 )
 
-[node name="Crab" type="Node2D" parent="."]
+[node name="Crab" type="Area2D" parent="Actors"]
 position = Vector2( 156, 43 )
+collision_layer = 16
+collision_mask = 32
 script = ExtResource( 1 )
 
-[node name="Sprite" type="AnimatedSprite" parent="Crab"]
+[node name="Sprite" type="AnimatedSprite" parent="Actors/Crab"]
 frames = SubResource( 27 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
-[node name="Tween" type="Tween" parent="Crab"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Crab"]
+position = Vector2( 0, -7.5 )
+shape = SubResource( 28 )
 
-[node name="ShootCool" type="Timer" parent="Crab"]
+[node name="Tween" type="Tween" parent="Actors/Crab"]
+
+[node name="ShootCool" type="Timer" parent="Actors/Crab"]
 wait_time = 2.0
 autostart = true
 
-[node name="ShootPos" type="Position2D" parent="Crab"]
+[node name="ShootPos" type="Position2D" parent="Actors/Crab"]
 position = Vector2( 0, 10 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="Actors" instance=ExtResource( 4 )]
 position = Vector2( 111, 93 )
+speed = 80
 
-[node name="ShellSpawner" type="Node2D" parent="."]
+[node name="ShellSpawner" type="Node2D" parent="Actors"]
 position = Vector2( 159, 110 )
 script = ExtResource( 6 )
 
-[connection signal="area_entered" from="Cannon" to="Cannon" method="_on_area_entered"]
-[connection signal="area_entered" from="Cannon2" to="Cannon2" method="_on_area_entered"]
-[connection signal="animation_finished" from="Crab/Sprite" to="Crab" method="_on_animation_finished"]
-[connection signal="tween_completed" from="Crab/Tween" to="Crab" method="_on_tween_completed"]
-[connection signal="timeout" from="Crab/ShootCool" to="Crab" method="_on_ShootCool_timeout"]
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 10 )
+
+[node name="Health" type="HBoxContainer" parent="UI"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Point" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Point"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_bottom = 14.0
+text = "Point: 1"
+
+[connection signal="area_entered" from="Actors/Cannon" to="Actors/Cannon" method="_on_area_entered"]
+[connection signal="area_exited" from="Actors/Cannon" to="Actors/Cannon" method="_on_area_exited"]
+[connection signal="area_entered" from="Actors/Cannon2" to="Actors/Cannon2" method="_on_area_entered"]
+[connection signal="area_exited" from="Actors/Cannon2" to="Actors/Cannon2" method="_on_area_exited"]
+[connection signal="body_entered" from="Actors/Crab" to="Actors/Crab" method="_on_body_entered"]
+[connection signal="animation_finished" from="Actors/Crab/Sprite" to="Actors/Crab" method="_on_animation_finished"]
+[connection signal="tween_completed" from="Actors/Crab/Tween" to="Actors/Crab" method="_on_tween_completed"]
+[connection signal="timeout" from="Actors/Crab/ShootCool" to="Actors/Crab" method="_on_ShootCool_timeout"]

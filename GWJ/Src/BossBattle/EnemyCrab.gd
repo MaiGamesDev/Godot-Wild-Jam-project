@@ -14,14 +14,22 @@ func _on_tween_completed(object, key):
 	_start_tween()
 
 func shoot():
+	$Sprite.play("attack")
+	yield(get_tree().create_timer(0.38),"timeout")
+	
 	var bullet = load("res://Src/BossBattle/BossBullet.tscn").instance()
 	var player = $"../Player"
 	var bullet_direction = (player.global_position - global_position).normalized()
 	bullet.direction = bullet_direction
-	bullet.position = position
+	bullet.global_position = $ShootPos.global_position
 	get_parent().add_child(bullet)
 
 
 func _on_ShootCool_timeout():
 	shoot()
-	$ShootCool.wait_time = 2.0
+	$ShootCool.wait_time = 3.0
+
+
+func _on_animation_finished():
+	$Sprite.frame = 0
+	$Sprite.play("walk")

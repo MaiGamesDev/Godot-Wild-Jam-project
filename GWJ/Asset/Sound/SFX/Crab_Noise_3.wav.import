@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crab_Noise_3.wav-ad1018f4642e03d48f707306088bb9f8.sample"
+
+[deps]
+
+source_file="res://Asset/Sound/SFX/Crab_Noise_3.wav"
+dest_files=[ "res://.import/Crab_Noise_3.wav-ad1018f4642e03d48f707306088bb9f8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

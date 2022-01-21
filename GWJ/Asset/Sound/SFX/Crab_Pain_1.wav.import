@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crab_Pain_1.wav-4986bbb81efcef94b489ae8f4ec37eb0.sample"
+
+[deps]
+
+source_file="res://Asset/Sound/SFX/Crab_Pain_1.wav"
+dest_files=[ "res://.import/Crab_Pain_1.wav-4986bbb81efcef94b489ae8f4ec37eb0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

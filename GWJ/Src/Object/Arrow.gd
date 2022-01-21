@@ -11,8 +11,8 @@ onready var raycast = $RayCast2D
 func _process(delta: float) -> void:
 	position = position.move_toward(position + direction, delta * speed)
 	if raycast.is_colliding():
-		if raycast.get_collider().has_method("on_hit"):
-			raycast.get_collider().on_hit(damage)
+		if raycast.get_collider().get_parent().has_method("on_hit"):
+			raycast.get_collider().get_parent().on_hit(damage)
 		queue_free()
 
 func start(dir):

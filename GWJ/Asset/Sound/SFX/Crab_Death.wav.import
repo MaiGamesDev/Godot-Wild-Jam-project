@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crab_Death.wav-c8a708b8d180b32259c83c30cbf2b198.sample"
+
+[deps]
+
+source_file="res://Asset/Sound/SFX/Crab_Death.wav"
+dest_files=[ "res://.import/Crab_Death.wav-c8a708b8d180b32259c83c30cbf2b198.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -25,16 +25,16 @@ func dash(dir):
 		direction = dir
 		state = DASH
 
-func _on_DetectUp_area_entered(area: Area2D) -> void:
+func _on_DetectUp_area_entered(_area: Area2D) -> void:
 	dash(Vector2.UP)
 
-func _on_DetectRight_area_entered(area: Area2D) -> void:
+func _on_DetectRight_area_entered(_area: Area2D) -> void:
 	dash(Vector2.RIGHT)
 
-func _on_DetectDown_area_entered(area: Area2D) -> void:
+func _on_DetectDown_area_entered(_area: Area2D) -> void:
 	dash(Vector2.DOWN)
 
-func _on_DetectLeft_area_entered(area: Area2D) -> void:
+func _on_DetectLeft_area_entered(_area: Area2D) -> void:
 	dash(Vector2.LEFT)
 
 func _on_timeout() -> void:

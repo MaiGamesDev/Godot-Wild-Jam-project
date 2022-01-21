@@ -31,6 +31,14 @@ func shoot():
 	else:
 		shell.linear_velocity = shell.linear_velocity.rotated(180)
 	get_parent().add_child(shell)
+
+	var sfx = load("res://Src/Sound/SFX_Player.tscn").instance()
+	var sfx_array = [
+		load("res://Asset/Sound/SFX/Cannon_Fire_1.wav"),
+		load("res://Asset/Sound/SFX/Cannon_Fire_2.wav")
+	]
+	sfx.stream = sfx_array[randi() % 2]
+	add_child(sfx)
 	
 
 

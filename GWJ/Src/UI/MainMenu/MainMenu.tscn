@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Src/UI/MainMenu/AboutPopUp.gd" type="Script" id=1]
 [ext_resource path="res://Src/UI/MainMenu/FullScreenBox.gd" type="Script" id=2]
@@ -13,26 +13,17 @@
 [ext_resource path="res://Src/UI/MainMenu/TitleMusic.gd" type="Script" id=11]
 [ext_resource path="res://Asset/Sound/BGM/Tiltle_Music.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Src/UI/Button.gd" type="Script" id=13]
-
-[sub_resource type="DynamicFont" id=1]
-size = 10
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 10
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 10
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 10
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 10
-font_data = ExtResource( 6 )
+[ext_resource path="res://Asset/Art/UI/buttonSettingsB.png" type="Texture" id=14]
+[ext_resource path="res://Asset/Art/UI/buttonCreditsB.png" type="Texture" id=15]
+[ext_resource path="res://Asset/Art/UI/buttonStartA.png" type="Texture" id=16]
+[ext_resource path="res://Asset/Art/UI/buttonStartB.png" type="Texture" id=17]
+[ext_resource path="res://Asset/Art/UI/buttonAboutA.png" type="Texture" id=18]
+[ext_resource path="res://Asset/Art/UI/buttonExitA.png" type="Texture" id=19]
+[ext_resource path="res://Asset/Art/UI/buttonExitB.png" type="Texture" id=20]
+[ext_resource path="res://Asset/Art/UI/buttonSettingsA.png" type="Texture" id=21]
+[ext_resource path="res://Asset/Art/UI/buttonCreditsA.png" type="Texture" id=22]
+[ext_resource path="res://Asset/Art/UI/buttonAboutB.png" type="Texture" id=23]
+[ext_resource path="res://Src/UI/ButtonTexture.gd" type="Script" id=24]
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 6 )
@@ -80,54 +71,52 @@ __meta__ = {
 }
 
 [node name="Buttons1" type="MarginContainer" parent="MenuUI/UI"]
-margin_left = 6.0
+margin_left = 12.0
 margin_top = 147.0
-margin_right = 151.0
+margin_right = 170.0
 margin_bottom = 172.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuUI/UI/Buttons1"]
-margin_left = 8.0
-margin_top = 6.0
-margin_right = 136.0
+margin_top = 12.0
+margin_right = 158.0
 margin_bottom = 25.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 
-[node name="Start" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
-margin_right = 36.0
-margin_bottom = 19.0
-custom_fonts/font = SubResource( 1 )
-text = "Start"
-script = ExtResource( 13 )
+[node name="Start" type="TextureButton" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 50, 13 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
 
-[node name="Control2" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
-margin_left = 40.0
-margin_right = 40.0
-margin_bottom = 19.0
+[node name="Setting" type="TextureButton" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 50, 13 )
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
 
-[node name="Setting" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
-margin_left = 44.0
-margin_right = 90.0
-margin_bottom = 19.0
-custom_fonts/font = SubResource( 2 )
-text = "Setting"
-script = ExtResource( 13 )
-
-[node name="Control" type="Control" parent="MenuUI/UI/Buttons1/HBoxContainer"]
-margin_left = 94.0
-margin_right = 94.0
-margin_bottom = 19.0
-
-[node name="Exit" type="Button" parent="MenuUI/UI/Buttons1/HBoxContainer"]
-margin_left = 98.0
-margin_right = 128.0
-margin_bottom = 19.0
-custom_fonts/font = SubResource( 3 )
-text = "Exit"
-script = ExtResource( 13 )
+[node name="Exit" type="TextureButton" parent="MenuUI/UI/Buttons1/HBoxContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 50, 13 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
 
 [node name="Button2" type="VBoxContainer" parent="MenuUI/UI"]
 margin_left = 267.0
@@ -140,26 +129,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rule" type="Button" parent="MenuUI/UI/Button2"]
-margin_left = 10.0
-margin_top = 4.0
-margin_right = 42.0
-margin_bottom = 23.0
+[node name="Rule" type="TextureButton" parent="MenuUI/UI/Button2"]
+margin_top = 16.0
+margin_right = 50.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 50, 13 )
 size_flags_horizontal = 8
-custom_fonts/font = SubResource( 4 )
-text = "Rule"
-align = 0
-script = ExtResource( 13 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 23 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
 
-[node name="About" type="Button" parent="MenuUI/UI/Button2"]
-margin_left = 2.0
-margin_top = 27.0
-margin_right = 42.0
+[node name="About" type="TextureButton" parent="MenuUI/UI/Button2"]
+margin_top = 33.0
+margin_right = 50.0
 margin_bottom = 46.0
+rect_min_size = Vector2( 50, 13 )
 size_flags_horizontal = 8
-custom_fonts/font = SubResource( 5 )
-text = "About"
-script = ExtResource( 13 )
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
 
 [node name="SettingPopUp" type="MarginContainer" parent="MenuUI/UI"]
 visible = false

@@ -516,24 +516,25 @@ rect_min_size = Vector2( 20, 0 )
 [node name="Coin" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
 position = Vector2( 199, 123 )
 frames = SubResource( 17 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Necklace" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
 position = Vector2( 228, 123 )
 frames = SubResource( 23 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="Diamond" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
 position = Vector2( 268, 123 )
 frames = SubResource( 28 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="SpikeTrap" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
 position = Vector2( 256, 77 )
 frames = SubResource( 31 )
+frame = 2
 playing = true
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]

@@ -40,6 +40,7 @@ _global_script_class_icons={
 
 config/name="GWJ"
 run/main_scene="res://Src/UI/MainMenu/MainMenu.tscn"
+boot_splash/image="res://Asset/Art/Splash/Wildling-Wallpaper 1080.png"
 config/icon="res://icon.png"
 
 [autoload]

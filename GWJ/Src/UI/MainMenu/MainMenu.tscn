@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Src/UI/MainMenu/AboutPopUp.gd" type="Script" id=1]
 [ext_resource path="res://Src/UI/MainMenu/FullScreenBox.gd" type="Script" id=2]
@@ -24,6 +24,10 @@
 [ext_resource path="res://Asset/Art/UI/buttonCreditsA.png" type="Texture" id=22]
 [ext_resource path="res://Asset/Art/UI/buttonAboutB.png" type="Texture" id=23]
 [ext_resource path="res://Src/UI/ButtonTexture.gd" type="Script" id=24]
+[ext_resource path="res://Asset/Art/Arix/Animation/Coin.png" type="Texture" id=25]
+[ext_resource path="res://Asset/Art/Arix/Animation/Neckless.png" type="Texture" id=26]
+[ext_resource path="res://Asset/Art/Arix/Animation/Spikes.png" type="Texture" id=27]
+[ext_resource path="res://Asset/Art/Arix/Animation/Diamond.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 6 )
@@ -45,6 +49,114 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 25 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 25 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 25 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 26 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 26 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 26 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 26 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 26 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 5 ), SubResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 28 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 28 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 28 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 27 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 27 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 27 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 29 ), SubResource( 30 ), SubResource( 13 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 5 )
@@ -340,7 +452,6 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="RulePopUp" type="MarginContainer" parent="MenuUI/UI"]
-visible = false
 margin_right = 320.0
 margin_bottom = 180.0
 rect_pivot_offset = Vector2( -121, 35 )
@@ -401,6 +512,29 @@ margin_left = 300.0
 margin_right = 320.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 20, 0 )
+
+[node name="Coin" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
+position = Vector2( 199, 123 )
+frames = SubResource( 17 )
+playing = true
+
+[node name="Necklace" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
+position = Vector2( 228, 123 )
+frames = SubResource( 23 )
+frame = 2
+playing = true
+
+[node name="Diamond" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
+position = Vector2( 268, 123 )
+frames = SubResource( 28 )
+frame = 3
+playing = true
+
+[node name="SpikeTrap" type="AnimatedSprite" parent="MenuUI/UI/RulePopUp"]
+position = Vector2( 256, 77 )
+frames = SubResource( 31 )
+frame = 4
+playing = true
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )

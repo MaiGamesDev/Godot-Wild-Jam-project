@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 			direction = Vector2.ZERO
 			if target != null:
 				state = CHASE
-		
 		CHASE:
 			if target != null:
 				direction = (target.global_position - global_position).normalized()

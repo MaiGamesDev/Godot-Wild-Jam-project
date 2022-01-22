@@ -1,0 +1,384 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Src/Object/ArrowTrap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/Actor/Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Level/TileGround.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Object/Algae.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Object/SpikeTrap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/Actor/Ghost.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Object/Necklace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/Actor/KrakenLeg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Src/Actor/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Object/Gem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/Object/Coin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/Level/TileWall.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Src/Level/TileCollision.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Src/Level/TileStuff.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/UI/UIManager.gd" type="Script" id=15]
+[ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Side.png" type="Texture" id=16]
+[ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
+[ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle Down"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle Side"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle Up"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk Down"
+length = 1.2
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk Side"
+length = 1.2
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk Up"
+length = 1.2
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 0 ]
+}
+
+[node name="Game" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 112, 48 )
+current = true
+process_mode = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.15
+drag_margin_right = 0.15
+editor_draw_drag_margin = true
+
+[node name="TileGround" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 1, 2, 1, 1, 3, 1, 1, 4, 1, 1, 5, 1, 1, 6, 1, 2, 65536, 1, 65536, 65537, 1, 65537, 65538, 1, 65537, 65539, 1, 65537, 65540, 1, 65537, 65541, 1, 65537, 65542, 1, 65538, 131072, 1, 65536, 131073, 1, 65537, 131074, 1, 65537, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 65537, 131078, 1, 65538, 196608, 1, 65536, 196609, 1, 65537, 196610, 1, 65537, 196611, 1, 65537, 196612, 1, 65537, 196613, 1, 65537, 196614, 1, 65538, 262144, 1, 65536, 262145, 1, 65537, 262146, 1, 65537, 262147, 1, 65537, 262148, 1, 65537, 262149, 1, 65537, 262150, 1, 65538, 327680, 1, 65536, 327681, 1, 65537, 327682, 1, 65537, 327683, 1, 65537, 327684, 1, 65537, 327685, 1, 65537, 327686, 1, 65538, 393216, 1, 65536, 393217, 1, 65537, 393218, 1, 65537, 393219, 1, 65537, 393220, 1, 65537, 393221, 1, 65537, 393222, 1, 65538, 458752, 1, 65536, 458753, 1, 65537, 458754, 1, 65537, 458755, 1, 65537, 458756, 1, 65537, 458757, 1, 65537, 458758, 1, 65538, 524288, 1, 65536, 524289, 1, 65537, 524290, 1, 65537, 524291, 1, 65537, 524292, 1, 65537, 524293, 1, 65537, 524294, 1, 65538, 589824, 1, 131072, 589825, 1, 131073, 589826, 1, 131073, 589827, 1, 131073, 589828, 1, 131073, 589829, 1, 131073, 589830, 1, 131074 )
+
+[node name="Level" type="YSort" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 112, 48 )
+
+[node name="RemoteTransform2D" parent="Level/Player" index="3"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="AnimationPlayer" parent="Level/Player" index="4"]
+"anims/Idle Down" = SubResource( 1 )
+"anims/Idle Side" = SubResource( 2 )
+"anims/Idle Up" = SubResource( 3 )
+"anims/Walk Down" = SubResource( 4 )
+"anims/Walk Side" = SubResource( 5 )
+"anims/Walk Up" = SubResource( 6 )
+
+[node name="Traps" type="Node2D" parent="Level"]
+
+[node name="SpikeTrap" parent="Level/Traps" instance=ExtResource( 5 )]
+position = Vector2( 80, 144 )
+
+[node name="ArrowTrap" parent="Level/Traps" instance=ExtResource( 1 )]
+position = Vector2( 272, 48 )
+
+[node name="Enemies" type="Node2D" parent="Level"]
+position = Vector2( 281, 122 )
+
+[node name="Ghost" parent="Level/Enemies" instance=ExtResource( 6 )]
+position = Vector2( -137, 86 )
+
+[node name="Zombie" parent="Level/Enemies" instance=ExtResource( 2 )]
+
+[node name="KrakenLeg" parent="Level/Enemies" instance=ExtResource( 8 )]
+position = Vector2( -9, -74 )
+
+[node name="Loot" type="Node2D" parent="Level"]
+
+[node name="Coin" parent="Level/Loot" instance=ExtResource( 11 )]
+position = Vector2( 44, 105 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="Gem" parent="Level/Loot" instance=ExtResource( 10 )]
+position = Vector2( 142, 76 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="Necklace" parent="Level/Loot" instance=ExtResource( 7 )]
+position = Vector2( 119, 5 )
+
+[node name="Algae" parent="Level/Loot" instance=ExtResource( 4 )]
+position = Vector2( 207, 104 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="TileWall" parent="Level" instance=ExtResource( 12 )]
+cell_y_sort = true
+tile_data = PoolIntArray( 65536, 0, 3, 65542, 0, 3, 131072, 0, 65539, 131078, 0, 65539, 196608, 0, 65539, 196614, 0, 65539, 262144, 0, 65539, 262150, 0, 65539, 327680, 0, 65539, 327686, 0, 65539, 393216, 0, 65539, 393219, 0, 0, 393220, 0, 1, 393221, 0, 1, 393222, 0, 131079, 458752, 0, 65539, 458755, 0, 65540, 458756, 0, 131073, 458757, 0, 131073, 458758, 0, 131074, 524288, 0, 131075, 524291, 0, 131075 )
+
+[node name="TileStuff" parent="Level" instance=ExtResource( 14 )]
+cell_y_sort = true
+
+[node name="TileCollision" parent="." instance=ExtResource( 13 )]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 15 )
+
+[node name="Health" type="HBoxContainer" parent="UI"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Point" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Point"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_bottom = 14.0
+text = "Point: 1"
+
+[editable path="Level/Player"]

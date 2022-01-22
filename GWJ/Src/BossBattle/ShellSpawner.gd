@@ -8,7 +8,7 @@ func spawnShell():
 
 	var itemShell = load("res://Src/BossBattle/ItemShell.tscn").instance()
 	add_child(itemShell)
-	yield(get_tree().create_timer(3.0),"timeout")
+	yield(get_tree().create_timer(10.0),"timeout")
 	
 	spawnShell()
 	

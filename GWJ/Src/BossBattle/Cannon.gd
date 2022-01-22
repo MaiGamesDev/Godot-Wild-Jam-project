@@ -21,24 +21,30 @@ func _input(event):
 			for area in get_overlapping_areas():
 				if area is ItemShell:
 					area.queue_free()
-			shoot()
+			fire()
 
-func shoot():
+func fire():
 	var shell = load("res://Src/BossBattle/Shell.tscn").instance()
-	shell.global_position = global_position
+	shell.global_position = $FirePos.global_position
 	if scale.x == 1:
-		shell.linear_velocity = shell.linear_velocity.rotated(200)
+		shell.direction = Vector2.UP.rotated(0.5).normalized()
 	else:
-		shell.linear_velocity = shell.linear_velocity.rotated(180)
+		shell.direction = Vector2.UP.rotated(-0.5).normalized()
 	get_parent().add_child(shell)
 
+	play_fire_sound()
+	
+	$Sprite.frame = 0
+	$Sprite.play("fire")
+	
+func play_fire_sound():
 	var sfx = load("res://Src/Sound/SFX_Player.tscn").instance()
 	var sfx_array = [
 		load("res://Asset/Sound/SFX/Cannon_Fire_1.wav"),
 		load("res://Asset/Sound/SFX/Cannon_Fire_2.wav")
 	]
 	sfx.stream = sfx_array[randi() % 2]
+	sfx.volume_db = -10
 	add_child(sfx)
 	
-
 

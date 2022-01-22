@@ -78,6 +78,10 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+mp3={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 
@@ -132,7 +136,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_clear_color=Color( 0.121569, 0.145098, 0.188235, 1 )
 environment/default_environment="res://default_env.tres"

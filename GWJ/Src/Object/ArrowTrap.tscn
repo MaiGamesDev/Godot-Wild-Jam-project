@@ -3,47 +3,47 @@
 [ext_resource path="res://Src/Object/ArrowTrap.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Art/arrow_trap.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "Down",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 11 ) ],
 "loop": true,
 "name": "Up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 12 ) ],
+"frames": [ SubResource( 10 ) ],
 "loop": true,
-"name": "Left",
+"name": "Down",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 13 ) ],
 "loop": true,
 "name": "Right",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "Left",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 10, 19 )
+extents = Vector2( 10, 41 )
 
 [node name="ArrowTrap" type="Area2D"]
 position = Vector2( 240, 16 )
@@ -58,7 +58,7 @@ frames = SubResource( 14 )
 animation = "Down"
 
 [node name="DetectArea" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 28 )
+position = Vector2( 0, 50 )
 shape = SubResource( 9 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

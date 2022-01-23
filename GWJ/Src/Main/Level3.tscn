@@ -282,7 +282,7 @@ level_name = "2F, Sailors Bedroom"
 next_scene = "res://Src/Main/Level4.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 368, 336 )
+position = Vector2( 368, 326 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true

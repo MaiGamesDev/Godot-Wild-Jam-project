@@ -275,7 +275,7 @@ level_name = "Storage"
 next_scene = "res://Src/UI/GameEnd/GameEnd.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 112, 48 )
+position = Vector2( 112, 38 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true

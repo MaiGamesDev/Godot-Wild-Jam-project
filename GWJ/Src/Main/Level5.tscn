@@ -277,7 +277,7 @@ level_name = "B1, Hallway"
 next_scene = "res://Src/Main/Level6.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 120, 872 )
+position = Vector2( 120, 862 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true
@@ -423,17 +423,29 @@ position = Vector2( -55, 615 )
 position = Vector2( -89, 630 )
 speed = 60
 
+[node name="Sprite" parent="Level/Enemies/Zombie" index="0"]
+frame = 0
+
 [node name="Zombie2" parent="Level/Enemies" instance=ExtResource( 2 )]
 position = Vector2( 15, 566 )
 speed = 60
+
+[node name="Sprite" parent="Level/Enemies/Zombie2" index="0"]
+frame = 0
 
 [node name="Zombie3" parent="Level/Enemies" instance=ExtResource( 2 )]
 position = Vector2( -49, 574 )
 speed = 60
 
+[node name="Sprite" parent="Level/Enemies/Zombie3" index="0"]
+frame = 0
+
 [node name="Zombie4" parent="Level/Enemies" instance=ExtResource( 2 )]
 position = Vector2( 7, 502 )
 speed = 60
+
+[node name="Sprite" parent="Level/Enemies/Zombie4" index="0"]
+frame = 0
 
 [node name="KrakenLeg" parent="Level/Enemies" instance=ExtResource( 8 )]
 position = Vector2( 145, 82 )

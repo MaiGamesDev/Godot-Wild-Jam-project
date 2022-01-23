@@ -273,7 +273,7 @@ level_name = " Stern Deck"
 next_scene = "res://Src/Main/Level2.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 112, 80 )
+position = Vector2( 112, 69 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true

@@ -280,7 +280,7 @@ level_name = "1F, Main Hall"
 next_scene = "res://Src/Main/Level3.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 176, 48 )
+position = Vector2( 176, 37 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true

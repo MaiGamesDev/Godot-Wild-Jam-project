@@ -12,12 +12,16 @@ var point = 0
 onready var health = max_health
 onready var health_container = $Health
 onready var point_container = $Point/Label
+onready var levelName_container = $LevelName/Label
 
 func _ready() -> void:
 	GameManager.ui_manager = self
 	init_health()
 	update_health()
 	update_point()
+	
+	yield(get_tree().create_timer(0.1),"timeout")
+	update_levelName()
 
 func player_hurt(damage):
 	health -= damage
@@ -54,3 +58,7 @@ func point_gain(gained):
 
 func update_point():
 	point_container.text = "Point: " + str(point) 
+
+func update_levelName():
+	levelName_container.text = $"../Game".level_name
+	print($"../Game".level_name)

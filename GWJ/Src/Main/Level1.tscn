@@ -1,5 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
+[ext_resource path="res://Src/Main/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://Src/Object/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Level/TileGround.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Object/Algae.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Object/SpikeTrap.tscn" type="PackedScene" id=5]
@@ -9,7 +11,6 @@
 [ext_resource path="res://Src/Level/TileWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/Level/TileCollision.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Level/TileStuff.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/UI/UIManager.gd" type="Script" id=15]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Side.png" type="Texture" id=16]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
@@ -263,7 +264,13 @@ tracks/2/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 0 ]
 }
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 13 )
+
 [node name="Game" type="Node"]
+script = ExtResource( 1 )
+level_name = " Stern Deck"
+next_scene = "res://Src/Main/Level2.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 112, 80 )
@@ -343,39 +350,24 @@ tile_data = PoolIntArray( 65536, 0, 3, 65542, 0, 3, 131072, 0, 65539, 131078, 0,
 cell_y_sort = true
 tile_data = PoolIntArray( 65537, 0, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 393218, 2, 0, 393219, 2, 0, 524299, 10, 0, 589831, 10, 0, 589832, 5, 0, 589833, 6, 0, 589834, 6, 0, 589835, 6, 0, 655367, 6, 0, 655368, 3, 0, 655369, 10, 0, 655370, 6, 0, 655371, 2, 0, 720902, 6, 0, 720903, 6, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 983045, 9, 0 )
 
+[node name="Key" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 152, 95 )
+
 [node name="TileCollision" parent="." instance=ExtResource( 13 )]
+visible = false
 collision_layer = 1
 collision_mask = 4
 tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, 0, 0, 0, 1, 0, 0, 12, 0, 0, 13, 0, 0, 65536, 0, 0, 65537, 0, 0, 65548, 0, 0, 65549, 0, 0, 131072, 0, 0, 131073, 0, 0, 131082, 0, 0, 131084, 0, 0, 131085, 0, 0, 196608, 0, 0, 196609, 0, 0, 196618, 0, 0, 196620, 0, 0, 196621, 0, 0, 262144, 0, 0, 262145, 0, 0, 262156, 0, 0, 262157, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327692, 0, 0, 327693, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393228, 0, 0, 393229, 0, 0, 458752, 0, 0, 458753, 0, 0, 458764, 0, 0, 458765, 0, 0, 524288, 0, 0, 524289, 0, 0, 524300, 0, 0, 524301, 0, 0, 589824, 0, 0, 589825, 0, 0, 589836, 0, 0, 589837, 0, 0, 655360, 0, 0, 655361, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 720896, 0, 0, 720897, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 786432, 0, 0, 786433, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 851968, 0, 0, 851969, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0 )
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource( 15 )
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2( 159, 527 )
+collision_layer = 0
+collision_mask = 4
 
-[node name="Health" type="HBoxContainer" parent="UI"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2( 1, 4 )
+shape = SubResource( 7 )
 
-[node name="Point" type="Control" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI/Point"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -49.0
-margin_bottom = 14.0
-text = "Point: 1"
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_LevelEnd_body_entered"]
 
 [editable path="Level/Player"]

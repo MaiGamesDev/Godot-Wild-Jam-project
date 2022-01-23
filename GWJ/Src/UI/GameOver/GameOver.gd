@@ -18,3 +18,7 @@ func _on_tween_completed(object, key):
 
 func _on_MainMenu_pressed():
 	get_tree().change_scene("res://Src/UI/MainMenu/MainMenu.tscn")
+
+
+func _on_Retry_pressed():
+	get_tree().change_scene("res://Src/Main/Main.tscn")

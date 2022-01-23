@@ -84,9 +84,11 @@ func on_hit(damage):
 	emit_signal("on_player_hurt", damage)
 	hurtbox.set_deferred("monitorable", false)
 	hurtbox_timer.start(invincible_time)
-
+	
 func on_gain(point):
 	emit_signal("on_point_gain", point)
+	
+	play_coin_sound()
 
 func _on_Hurtbox_Timer_timeout() -> void:
 	hurtbox.monitorable = true
@@ -97,3 +99,11 @@ func _on_timeout() -> void:
 		timer.start(dash_cool_time)
 	elif state == WALK:
 		can_dash = true
+	
+func play_coin_sound():
+	var sfx = load("res://Src/Sound/SFX_Player.tscn").instance()
+	sfx.stream = load("res://Asset/Sound/SFX/Get_Coin.wav")
+	sfx.volume_db = 0
+	add_child(sfx)
+	
+	

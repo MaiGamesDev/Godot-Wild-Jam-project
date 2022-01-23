@@ -22,15 +22,21 @@ func _ready() -> void:
 	update_point()
 	
 	yield(get_tree().create_timer(0.1),"timeout")
-	update_levelName()
+	update_levelName("res://Src/Main/Level1.tscn")
 
 func player_hurt(damage):
 	health -= damage
 	if health <= 0:
 		health = 0
 		print("player dies")
+		get_tree().change_scene("res://Src/UI/GameOver/GameOver.tscn")
 	elif health >= max_health:
 		health = max_health
+	
+	if damage > 0:
+		play_hurt_sound()
+	else:
+		play_heart_gain_sound()
 	
 	update_health()
 
@@ -56,10 +62,44 @@ func update_health():
 func point_gain(gained):
 	point += gained
 	update_point()
+	
 
 func update_point():
-	point_container.text = "Point: " + str(point) 
+	point_container.text = str(point) 
 
-func update_levelName():
-	levelName_container.text = $"../Game".level_name
-	print($"../Game".level_name)
+func update_levelName(scene):
+	match scene:
+		"res://Src/Main/Level1.tscn":
+			levelName_container.text = "Stern Deck"
+		"res://Src/Main/Level2.tscn":
+			levelName_container.text = "1F Main Hall"
+		"res://Src/Main/Level3.tscn":
+			levelName_container.text = "2F Sailors Bedroom"
+		"res://Src/Main/Level4.tscn":
+			levelName_container.text = "3F Captain's Room"
+		"res://Src/Main/Level5.tscn":
+			levelName_container.text = "B1 Hallway"
+		"res://Src/Main/Level6.tscn":
+			levelName_container.text = "Bling Crap's Hideout"
+		"res://Src/Main/Level7.tscn":
+			levelName_container.text = "The Storage"
+		"res://Src/Main/Level2_B.tscn":
+			levelName_container.text = "1F Main Hall"
+
+
+func play_hurt_sound():
+	var sound_array = [
+		load("res://Asset/Sound/SFX/Player_Hurt_1.wav"),
+		load("res://Asset/Sound/SFX/Player_Hurt_2.wav")
+	]
+	var sfx = load("res://Src/Sound/SFX_Player.tscn").instance()
+	sfx.stream = sound_array[randi() % sound_array.size()]
+	sfx.volume_db = 0
+	add_child(sfx)
+	
+func play_heart_gain_sound():
+	var sfx = load("res://Src/Sound/SFX_Player.tscn").instance()
+	sfx.stream = load("res://Asset/Sound/SFX/Heart_gain.wav")
+	sfx.volume_db = 0
+	add_child(sfx)
+	

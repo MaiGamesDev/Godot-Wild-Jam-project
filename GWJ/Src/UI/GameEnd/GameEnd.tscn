@@ -120,6 +120,7 @@ tracks/3/keys = {
 }
 
 [node name="GameEnd" type="Node2D"]
+scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 6 )
 
 [node name="BackGround" type="Sprite" parent="."]
@@ -135,6 +136,8 @@ texture = ExtResource( 5 )
 texture = ExtResource( 2 )
 
 [node name="EndUI" type="CanvasLayer" parent="."]
+scale = Vector2( 1.25, 1.25 )
+transform = Transform2D( 1.25, 0, 0, 1.25, 0, 0 )
 
 [node name="UI" type="Control" parent="EndUI"]
 margin_right = 40.0
@@ -220,6 +223,7 @@ anims/RESET = SubResource( 2 )
 stream = ExtResource( 8 )
 autoplay = true
 
+[connection signal="pressed" from="EndUI/UI/Buttons/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="EndUI/UI/Buttons/Retry" to="EndUI/UI/Buttons/Retry" method="_on_pressed"]
 [connection signal="pressed" from="EndUI/UI/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="EndUI/UI/Buttons/MainMenu" to="EndUI/UI/Buttons/MainMenu" method="_on_pressed"]

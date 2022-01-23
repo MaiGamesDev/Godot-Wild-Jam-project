@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Src/BossBattle/Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Src/Level/TileWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/Level/TileCollision.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Level/TileStuff.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/Main/ClampCamera.gd" type="Script" id=15]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Side.png" type="Texture" id=16]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
@@ -309,30 +310,6 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="AtlasTexture" id=54]
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 152, 120 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 5 )
-region = Rect2( 152, 0, 152, 120 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 5 )
-region = Rect2( 304, 0, 152, 120 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 5 )
-region = Rect2( 456, 0, 152, 120 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
-region = Rect2( 760, 0, 152, 120 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
-region = Rect2( 912, 0, 152, 120 )
-
 [sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 152, 120 )
@@ -348,6 +325,10 @@ region = Rect2( 304, 0, 152, 120 )
 [sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 10 )
 region = Rect2( 456, 0, 152, 120 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 152, 120 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 6 )
@@ -397,22 +378,37 @@ region = Rect2( 1280, 0, 160, 120 )
 atlas = ExtResource( 11 )
 region = Rect2( 1440, 0, 160, 120 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 152, 0, 152, 120 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 304, 0, 152, 120 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 456, 0, 152, 120 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 760, 0, 152, 120 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 912, 0, 152, 120 )
+
 [sub_resource type="SpriteFrames" id=59]
 animations = [ {
-"frames": [ SubResource( 54 ) ],
-"loop": false,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": false,
-"name": "attack",
-"speed": 8.0
-}, {
 "frames": [ SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
 "loop": true,
 "name": "walk",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 54 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": false,
@@ -423,6 +419,11 @@ animations = [ {
 "loop": false,
 "name": "die",
 "speed": 4.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "attack",
+"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=60]
@@ -458,24 +459,21 @@ color_ramp = SubResource( 49 )
 [sub_resource type="RectangleShape2D" id=65]
 extents = Vector2( 453.5, 19 )
 
+[sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 64, 16.5 )
+
 [node name="Game" type="Node"]
 script = ExtResource( 20 )
 level_name = "Bling Crap's Hideout"
 next_scene = "res://Src/Main/Level7.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 154, 166 )
+position = Vector2( 154, 176 )
 current = true
-process_mode = 0
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.15
-drag_margin_right = 0.15
-editor_draw_drag_margin = true
+script = ExtResource( 15 )
 
 [node name="TileGround" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( -196607, 1, 0, -196606, 2, 131073, -196605, 1, 2, -131071, 1, 65536, -131070, 2, 131072, -131069, 1, 65538, -65536, 1, 0, -65535, 1, 0, -65534, 1, 65537, -65533, 1, 0, -65532, 1, 1, -65531, 1, 2, 65535, 1, 0, 0, 2, 65537, 1, 1, 65537, 2, 1, 65537, 3, 2, 131073, 4, 2, 65536, 5, 1, 65538, 65536, 1, 65536, 65537, 1, 65537, 65538, 1, 65537, 65539, 1, 65537, 65540, 1, 65537, 65541, 1, 65538, 131072, 1, 65536, 131073, 1, 65537, 131074, 1, 65537, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 65538, 196608, 1, 131072, 196609, 1, 0, 196610, 1, 65537, 196611, 1, 0, 196612, 1, 131073, 196613, 1, 131074, 262145, 1, 131072, 262146, 1, 131073, 262147, 1, 131074 )
+tile_data = PoolIntArray( -196607, 1, 0, -196606, 2, 131073, -196605, 1, 2, -131071, 1, 65536, -131070, 2, 131072, -131069, 1, 65538, -65536, 1, 0, -65535, 1, 0, -65534, 1, 65537, -65533, 1, 0, -65532, 1, 1, -65531, 1, 2, 65535, 1, 0, 0, 2, 65537, 1, 2, 131073, 2, 2, 131073, 3, 2, 131073, 4, 2, 65536, 5, 1, 65538, 65536, 1, 65536, 65537, 1, 65537, 65538, 1, 65537, 65539, 1, 65537, 65540, 1, 65537, 65541, 1, 65538, 131072, 1, 65536, 131073, 1, 65537, 131074, 1, 65537, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 65538, 196608, 1, 131072, 196609, 1, 0, 196610, 1, 65537, 196611, 1, 0, 196612, 1, 131073, 196613, 1, 131074, 262145, 1, 131072, 262146, 1, 131073, 262147, 1, 131074 )
 
 [node name="Level" type="YSort" parent="."]
 
@@ -594,9 +592,18 @@ tile_data = PoolIntArray( -196607, 0, 3, -196605, 0, 3, -131071, 0, 65539, -1310
 cell_y_sort = true
 tile_data = PoolIntArray( 65537, 7, 0, 131072, 7, 0, 131080, 10, 0, 131081, 7, 0, 196608, 6, 0, 196609, 6, 0, 196616, 10, 0, 196617, 10, 0, 262144, 6, 0, 262153, 7, 0, 327680, 7, 0, 327689, 7, 0 )
 
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2( 152, -24 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2( 16, 0.5 )
+shape = SubResource( 66 )
+
 [node name="TileCollision" parent="." instance=ExtResource( 13 )]
 visible = false
-tile_data = PoolIntArray( -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -393213, 0, 0, -393210, 0, 0, -327677, 0, 0, -327674, 0, 0, -262141, 0, 0, -262138, 0, 0, -196605, 0, 0, -196602, 0, 0, -131069, 0, 0, -131066, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, 65535, 0, 0, 10, 0, 0, 131071, 0, 0, 65546, 0, 0, 196607, 0, 0, 131082, 0, 0, 262143, 0, 0, 196618, 0, 0, 327679, 0, 0, 262154, 0, 0, 393215, 0, 0, 327690, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 458755, 0, 0, 458758, 0, 0, 524291, 0, 0, 524294, 0, 0, 589827, 0, 0, 589830, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0 )
+tile_data = PoolIntArray( -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -393213, 0, 0, -393210, 0, 0, -327677, 0, 0, -327674, 0, 0, -262141, 0, 0, -262138, 0, 0, -196605, 0, 0, -196602, 0, 0, -131069, 0, 0, -131066, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, 65535, 0, 0, 10, 0, 0, 131071, 0, 0, 65546, 0, 0, 196607, 0, 0, 131082, 0, 0, 262143, 0, 0, 196618, 0, 0, 327679, 0, 0, 262154, 0, 0, 393215, 0, 0, 327690, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 458755, 0, 0, 458758, 0, 0, 524291, 0, 0, 524294, 0, 0, 589827, 0, 0, 589830, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0 )
 
 [node name="BossMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
@@ -610,5 +617,6 @@ autoplay = true
 [connection signal="animation_finished" from="Level/EnemyCrab/Sprite" to="Level/EnemyCrab" method="_on_animation_finished"]
 [connection signal="tween_completed" from="Level/EnemyCrab/Tween" to="Level/EnemyCrab" method="_on_tween_completed"]
 [connection signal="timeout" from="Level/EnemyCrab/ShootCool" to="Level/EnemyCrab" method="_on_ShootCool_timeout"]
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_LevelEnd_body_entered"]
 
 [editable path="Level/Player"]

@@ -80,6 +80,7 @@ size = 10
 font_data = ExtResource( 5 )
 
 [node name="GameOver" type="Node2D"]
+scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 4 )
 
 [node name="BackGround" type="Sprite" parent="."]
@@ -103,6 +104,8 @@ anims/fadeIn = SubResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]
+scale = Vector2( 1.25, 1.25 )
+transform = Transform2D( 1.25, 0, 0, 1.25, 0, 0 )
 
 [node name="UI" type="Control" parent="GameOverUI"]
 visible = false
@@ -157,6 +160,7 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_tween_completed"]
+[connection signal="pressed" from="GameOverUI/UI/Buttons/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="GameOverUI/UI/Buttons/Retry" to="GameOverUI/UI/Buttons/Retry" method="_on_pressed"]
 [connection signal="pressed" from="GameOverUI/UI/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="GameOverUI/UI/Buttons/MainMenu" to="GameOverUI/UI/Buttons/MainMenu" method="_on_pressed"]

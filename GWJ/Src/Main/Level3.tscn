@@ -282,7 +282,7 @@ level_name = "2F, Sailors Bedroom"
 next_scene = "res://Src/Main/Level4.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 368, 326 )
+position = Vector2( 368, 336 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true
@@ -462,6 +462,18 @@ monitorable = false
 
 [node name="Algae2" parent="Level/Loot" instance=ExtResource( 4 )]
 position = Vector2( 208, 368 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="Algae3" parent="Level/Loot" instance=ExtResource( 4 )]
+position = Vector2( 176, 624 )
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="Algae4" parent="Level/Loot" instance=ExtResource( 4 )]
+position = Vector2( 720, 656 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false

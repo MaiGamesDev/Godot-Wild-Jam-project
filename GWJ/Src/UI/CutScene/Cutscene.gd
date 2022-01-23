@@ -14,7 +14,7 @@ func _on_Next_pressed():
 		$AnimationPlayer.play("cutsceneC")
 		current_animation = ""
 	if current_animation == "cutsceneC":
-		pass
+		get_tree().change_scene("res://Src/Main/Main.tscn")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	current_animation = anim_name

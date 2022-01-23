@@ -266,7 +266,8 @@ tracks/2/keys = {
 collision_layer = 4
 collision_mask = 65
 script = ExtResource( 2 )
-speed = 50
+speed = 60
+dash_speed = 140
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -28 )

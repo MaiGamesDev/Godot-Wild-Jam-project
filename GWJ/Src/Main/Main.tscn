@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Asset/Sound/BGM/Level_Music.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Src/UI/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Main/MainManager.gd" type="Script" id=3]
 
 [node name="Main" type="Node"]
+script = ExtResource( 3 )
+first_scene = "res://Src/Main/Level1.tscn"
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="UI" parent="." instance=ExtResource( 2 )]

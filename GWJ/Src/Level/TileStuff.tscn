@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Asset/Art/Arix/Static/Coral_Pink.png" type="Texture" id=1]
 [ext_resource path="res://Asset/Art/Arix/Static/Candles.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Asset/Art/Arix/Static/Algae.png" type="Texture" id=10]
 [ext_resource path="res://Asset/Art/Arix/Static/Skull.png" type="Texture" id=11]
 [ext_resource path="res://Asset/Art/Arix/Animation/Candle3.png" type="Texture" id=12]
+[ext_resource path="res://Asset/Art/Arix/Static/Chest.png" type="Texture" id=13]
+[ext_resource path="res://Asset/Art/Arix/Static/Table.png" type="Texture" id=14]
 
 [sub_resource type="AnimatedTexture" id=3]
 frames = 3
@@ -163,6 +165,34 @@ frame_2/delay_sec = 0.0
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
+11/name = "Chest"
+11/texture = ExtResource( 13 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 32, 32 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "Table"
+12/texture = ExtResource( 14 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 64, 32 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
 
 [node name="TileStuff" type="TileMap"]
 tile_set = SubResource( 1 )

@@ -7,13 +7,13 @@
 [ext_resource path="res://Src/Object/SpikeTrap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Actor/Ghost.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Object/Necklace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/Main/LevelManager.gd" type="Script" id=8]
 [ext_resource path="res://Src/Actor/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Object/Gem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Object/Coin.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/Level/TileWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/Level/TileCollision.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Level/TileStuff.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/UI/UIManager.gd" type="Script" id=15]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Side.png" type="Texture" id=16]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
@@ -271,6 +271,9 @@ tracks/2/keys = {
 extents = Vector2( 41, 10 )
 
 [node name="Game" type="Node"]
+script = ExtResource( 8 )
+level_name = "1F, Main Hall"
+next_scene = "res://Src/Main/Level3.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 176, 48 )
@@ -442,36 +445,6 @@ visible = false
 collision_layer = 1
 collision_mask = 4
 tile_data = PoolIntArray( -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131080, 0, 0, 131082, 0, 0, 131086, 0, 0, 131087, 0, 0, 196608, 0, 0, 196609, 0, 0, 196622, 0, 0, 196623, 0, 0, 262144, 0, 0, 262145, 0, 0, 262158, 0, 0, 262159, 0, 0, 327680, 0, 0, 327681, 0, 0, 327694, 0, 0, 327695, 0, 0, 393216, 0, 0, 393217, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524302, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589838, 0, 0, 589839, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655374, 0, 0, 655375, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720910, 0, 0, 720911, 0, 0, 786432, 0, 0, 786433, 0, 0, 786442, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 851968, 0, 0, 851969, 0, 0, 851977, 0, 0, 851978, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 917504, 0, 0, 917505, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917518, 0, 0, 917519, 0, 0, 983040, 0, 0, 983041, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983054, 0, 0, 983055, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376270, 0, 0, 1376271, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0, 1507331, 0, 0, 1507332, 0, 0, 1507333, 0, 0, 1507334, 0, 0, 1507335, 0, 0, 1507336, 0, 0, 1507337, 0, 0, 1507338, 0, 0, 1507339, 0, 0, 1507340, 0, 0, 1507341, 0, 0, 1507342, 0, 0, 1507343, 0, 0 )
-
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource( 15 )
-
-[node name="Health" type="HBoxContainer" parent="UI"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Point" type="Control" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI/Point"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -49.0
-margin_bottom = 14.0
-text = "Point: 1"
 
 [editable path="Level/Player"]
 [editable path="Level/Traps/ArrowTrap3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Src/BossBattle/Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
 [ext_resource path="res://Asset/Sound/BGM/Boss_Music.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Src/Main/LevelManager.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle Down"
@@ -459,6 +460,9 @@ color_ramp = SubResource( 49 )
 extents = Vector2( 453.5, 19 )
 
 [node name="Game" type="Node"]
+script = ExtResource( 20 )
+level_name = "Bling Crap's Hideout"
+next_scene = "res://Src/Main/Level7.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 154, 176 )

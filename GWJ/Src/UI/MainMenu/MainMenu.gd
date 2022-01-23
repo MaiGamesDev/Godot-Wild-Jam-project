@@ -4,7 +4,6 @@ extends Node2D
 func _ready():
 	if OS.has_feature("HTML5"):
 		$Buttons/Menu/Exit.hide()
-		$MenuUI/UI/SettingPopUp/VBoxContainer/FullScreen.hide()
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://Src/UI/CutScene/Cutscene.tscn")

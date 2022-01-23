@@ -468,7 +468,7 @@ level_name = "Bling Crap's Hideout"
 next_scene = "res://Src/Main/Level7.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 154, 176 )
+position = Vector2( 160, 80 )
 current = true
 script = ExtResource( 15 )
 
@@ -537,7 +537,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Level/EnemyCrab"]
 frames = SubResource( 59 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/EnemyCrab"]

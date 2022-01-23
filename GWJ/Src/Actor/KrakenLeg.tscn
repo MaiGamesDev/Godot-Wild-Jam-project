@@ -1,10 +1,73 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Actor/KrakenLeg.gd" type="Script" id=1]
-[ext_resource path="res://Asset/enemy.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Art/Kraken/Kraken_Idle.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Art/Kraken/Kraken_Attack.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 5, 2.5 )
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 3 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": false,
+"name": "attack",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 6.0
+height = 10.0
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 48 )
@@ -18,23 +81,25 @@ extents = Vector2( 10, 48 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 48, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 4, 6 )
+[sub_resource type="CircleShape2D" id=28]
 
 [node name="KrakenLeg" type="KinematicBody2D"]
-position = Vector2( -105, -151 )
 collision_layer = 16
 collision_mask = 17
 script = ExtResource( 1 )
 speed = 120
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -7 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16 )
+frames = SubResource( 26 )
+animation = "attack"
+frame = 6
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3 )
-shape = SubResource( 7 )
+position = Vector2( 3, -2 )
+rotation = 1.5708
+shape = SubResource( 27 )
 
 [node name="DetectUp" type="Area2D" parent="."]
 modulate = Color( 1, 0, 0, 0.533333 )
@@ -86,8 +151,8 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 0, -7 )
-shape = SubResource( 9 )
+position = Vector2( 3, -7 )
+shape = SubResource( 28 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

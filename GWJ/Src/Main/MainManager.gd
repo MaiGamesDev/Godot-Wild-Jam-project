@@ -8,6 +8,7 @@ var is_got_key = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if first_scene != null:
+		print(first_scene)
 		add_child(load(first_scene).instance())
 
 func change_level(scene):

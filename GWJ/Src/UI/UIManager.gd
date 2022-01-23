@@ -14,6 +14,7 @@ onready var health_container = $Health
 onready var point_container = $Point/Label
 onready var levelName_container = $LevelName/Label
 
+
 func _ready() -> void:
 	GameManager.ui_manager = self
 	init_health()

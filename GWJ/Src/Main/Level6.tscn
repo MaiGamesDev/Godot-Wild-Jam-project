@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Src/BossBattle/Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Src/BossBattle/EnemyCrab.gd" type="Script" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Src/Level/TileWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/Level/TileCollision.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Level/TileStuff.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/UI/UIManager.gd" type="Script" id=15]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Side.png" type="Texture" id=16]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_Up.png" type="Texture" id=17]
 [ext_resource path="res://Asset/Art/Player_Animation/Player_Walk_D.png" type="Texture" id=18]
@@ -540,7 +539,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Level/EnemyCrab"]
 frames = SubResource( 59 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/EnemyCrab"]
@@ -593,6 +592,7 @@ tile_data = PoolIntArray( -196607, 0, 3, -196605, 0, 3, -131071, 0, 65539, -1310
 
 [node name="TileStuff" parent="Level" instance=ExtResource( 14 )]
 cell_y_sort = true
+tile_data = PoolIntArray( 65537, 7, 0, 131072, 7, 0, 131080, 10, 0, 131081, 7, 0, 196608, 6, 0, 196609, 6, 0, 196616, 10, 0, 196617, 10, 0, 262144, 6, 0, 262153, 7, 0, 327680, 7, 0, 327689, 7, 0 )
 
 [node name="TileCollision" parent="." instance=ExtResource( 13 )]
 visible = false
@@ -601,36 +601,6 @@ tile_data = PoolIntArray( -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 
 [node name="BossMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
 autoplay = true
-
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource( 15 )
-
-[node name="Health" type="HBoxContainer" parent="UI"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Point" type="Control" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI/Point"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -49.0
-margin_bottom = 14.0
-text = "Point: 1"
 
 [connection signal="area_entered" from="Level/Cannon" to="Level/Cannon" method="_on_area_entered"]
 [connection signal="area_exited" from="Level/Cannon" to="Level/Cannon" method="_on_area_exited"]

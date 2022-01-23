@@ -1,13 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/Actor/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Asset/enemy.png" type="Texture" id=2]
+[ext_resource path="res://Asset/enemy-Sheet.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 5, 2.5 )
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 64.0
+radius = 448.0
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 4, 6 )
@@ -18,9 +34,11 @@ collision_mask = 17
 script = ExtResource( 1 )
 speed = 25
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -7 )
-texture = ExtResource( 2 )
+frames = SubResource( 12 )
+frame = 1
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3 )

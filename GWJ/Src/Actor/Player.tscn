@@ -302,4 +302,8 @@ one_shot = true
 "anims/Walk Side" = SubResource( 5 )
 "anims/Walk Up" = SubResource( 6 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Hurtbox/Timer" to="." method="_on_Hurtbox_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]

@@ -15,7 +15,7 @@ func change_level(scene):
 	if scene == "res://Src/UI/GameEnd/GameEnd.tscn":
 		get_tree().change_scene(scene)
 	else:
-		$Game.queue_free()
+		get_child(2).queue_free()
 		add_child(load(scene).instance())
 		$UI.update_levelName()
 		
